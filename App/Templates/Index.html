@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Agent Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold mb-4">LLM Agent Interface</h1>
+        <div class="mb-4">
+            <input id="question" type="text" class="w-full p-2 border rounded" placeholder="Enter your question">
+        </div>
+        <button id="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+        <div id="result" class="mt-4 p-4 bg-white rounded shadow"></div>
+    </div>
+    <script>
+        document.getElementById('submit').addEventListener('click', async () => {
+            const question = document.getElementById('question').value;
+            const response = await fetch('/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question }),
+            });
+            const data = await response.json();
+            document.getElementById('result').textContent = data.result;
+        });
+    </script>
+</body>
+</html>
