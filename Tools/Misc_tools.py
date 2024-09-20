@@ -6,4 +6,4 @@ class WeatherTool(BaseTool):
     description = "Get current weather information for a location"
 
     def _run(self, query: str) -> str:
-        # This is a mock implementation. In a real scenario, you'd use
+        
