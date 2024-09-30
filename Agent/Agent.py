@@ -9,7 +9,6 @@ from tools.misc_tools import WeatherTool, NewsAPITool
 
 def create_agent_executor():
     llm = OpenAI(temperature=0)
-
     tools = [
         DuckDuckGoSearchRun(),
         WikipediaQueryRun(),
@@ -38,3 +37,4 @@ def create_agent_executor():
     )
 
     return AgentExecutor.from_agent_and_tools(agent=agent, tools=tools, verbose=True)
+ 
