@@ -7,5 +7,5 @@ def create_app():
 
     from app import routes
     app.register_blueprint(routes.main)
-
+ 
     return app
