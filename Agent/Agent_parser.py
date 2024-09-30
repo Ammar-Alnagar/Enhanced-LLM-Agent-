@@ -3,6 +3,7 @@ from langchain.schema import AgentAction, AgentFinish
 from typing import Union
 import re
 
+
 class CustomOutputParser(AgentOutputParser):
     def parse(self, llm_output: str) -> Union[AgentAction, AgentFinish]:
         if "Final Answer:" in llm_output:
