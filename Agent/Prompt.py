@@ -1,5 +1,5 @@
 from langchain.prompts import StringPromptTemplate
-
+ 
 class CustomPromptTemplate(StringPromptTemplate):
     template = """Answer the following questions as best you can. You have access to the following tools:
 
